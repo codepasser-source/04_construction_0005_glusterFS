@@ -1,0 +1,54 @@
+.artZoomBox {
+	background: rgb(246, 246, 246); width: 400px;
+}
+a.artZoom {
+	color: rgb(204, 204, 204); padding-top: 3px; position: relative; cursor: url(/images/zoomin.cur), pointer;
+}
+a.artZoom:hover {
+	text-decoration: none;
+}
+a.artZoom span.loading {
+	background: url("/images/loading.gif") no-repeat 0px 0px; margin: 2px 0px; width: 16px; height: 16px; line-height: 16px; padding-left: 20px; font-size: 9px; display: block; position: absolute;
+}
+.artZoomBox {
+	margin: 0px auto; width: 400px; text-align: center; position: relative;
+}
+.artZoomBox .tool {
+	left: 0px; top: 0px; visibility: hidden; position: absolute;
+}
+.artZoomBox.js_hover .tool {
+	visibility: visible;
+}
+.artZoomBox .tool a {
+	width: 24px; height: 24px; color: rgb(255, 255, 255); text-indent: -9999em; overflow: hidden; text-decoration: none; float: left; display: block; opacity: 0.5; background-image: url("/images/photoTool.gif"); background-repeat: no-repeat; background-color: rgb(58, 110, 165);
+}
+.artZoomBox .tool a:hover {
+	opacity: 0.8;
+}
+.artZoomBox .tool a.hideImg {
+	display: none;
+}
+.artZoomBox .tool a.imgLeft {
+	
+}
+.artZoomBox .tool a.imgLeft {
+	background-position: -24px 0px;
+}
+.artZoomBox .tool a.viewImg {
+	background-position: 0px -24px;
+}
+.artZoomBox a.maxImgLink {
+	display: inline; cursor: url(/images/zoomout.cur), pointer; -ms-zoom: 1;
+}
+.artZoomBox a.maxImgLink .maxImg {
+	width: 400px;
+}
+.artZoomBox a.maxImgLink {
+	width: 400px; display: block;
+}
+.small {
+	width: 120px; height: 68px;
+}
+a.miniImg {
+	padding-bottom: 0px;
+}

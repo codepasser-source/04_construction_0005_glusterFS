@@ -1,0 +1,171 @@
+pre code {
+	background: rgb(248, 248, 255); padding: 0.5em; color: rgb(51, 51, 51); display: block;
+}
+pre {
+	background: rgb(248, 248, 255); padding: 0.5em; color: rgb(51, 51, 51); display: block;
+}
+pre .comment {
+	color: rgb(153, 153, 136); font-style: italic;
+}
+pre .template_comment {
+	color: rgb(153, 153, 136); font-style: italic;
+}
+pre .diff .header {
+	color: rgb(153, 153, 136); font-style: italic;
+}
+pre .javadoc {
+	color: rgb(153, 153, 136); font-style: italic;
+}
+pre .keyword {
+	color: rgb(51, 51, 51); font-weight: bold;
+}
+pre .css .rule .keyword {
+	color: rgb(51, 51, 51); font-weight: bold;
+}
+pre .winutils {
+	color: rgb(51, 51, 51); font-weight: bold;
+}
+pre .javascript .title {
+	color: rgb(51, 51, 51); font-weight: bold;
+}
+pre .nginx .title {
+	color: rgb(51, 51, 51); font-weight: bold;
+}
+pre .subst {
+	color: rgb(51, 51, 51); font-weight: bold;
+}
+pre .request {
+	color: rgb(51, 51, 51); font-weight: bold;
+}
+pre .status {
+	color: rgb(51, 51, 51); font-weight: bold;
+}
+pre .number {
+	color: rgb(0, 153, 153);
+}
+pre .hexcolor {
+	color: rgb(0, 153, 153);
+}
+pre .ruby .constant {
+	color: rgb(0, 153, 153);
+}
+pre .string {
+	color: rgb(221, 17, 68);
+}
+pre .tag .value {
+	color: rgb(221, 17, 68);
+}
+pre .phpdoc {
+	color: rgb(221, 17, 68);
+}
+pre .tex .formula {
+	color: rgb(221, 17, 68);
+}
+pre .title {
+	color: rgb(153, 0, 0); font-weight: bold;
+}
+pre .id {
+	color: rgb(153, 0, 0); font-weight: bold;
+}
+pre .javascript .title {
+	font-weight: normal;
+}
+pre .lisp .title {
+	font-weight: normal;
+}
+pre .clojure .title {
+	font-weight: normal;
+}
+pre .subst {
+	font-weight: normal;
+}
+pre .class .title {
+	color: rgb(68, 85, 136); font-weight: bold;
+}
+pre .haskell .type {
+	color: rgb(68, 85, 136); font-weight: bold;
+}
+pre .vhdl .literal {
+	color: rgb(68, 85, 136); font-weight: bold;
+}
+pre .tex .command {
+	color: rgb(68, 85, 136); font-weight: bold;
+}
+pre .tag {
+	color: rgb(0, 0, 128); font-weight: normal;
+}
+pre .tag .title {
+	color: rgb(0, 0, 128); font-weight: normal;
+}
+pre .rules .property {
+	color: rgb(0, 0, 128); font-weight: normal;
+}
+pre .django .tag .keyword {
+	color: rgb(0, 0, 128); font-weight: normal;
+}
+pre .attribute {
+	color: rgb(0, 128, 128);
+}
+pre .variable {
+	color: rgb(0, 128, 128);
+}
+pre .lisp .body {
+	color: rgb(0, 128, 128);
+}
+pre .regexp {
+	color: rgb(0, 153, 38);
+}
+pre .class {
+	color: rgb(68, 85, 136); font-weight: bold;
+}
+pre .symbol {
+	color: rgb(153, 0, 115);
+}
+pre .ruby .symbol .string {
+	color: rgb(153, 0, 115);
+}
+pre .lisp .keyword {
+	color: rgb(153, 0, 115);
+}
+pre .tex .special {
+	color: rgb(153, 0, 115);
+}
+pre .prompt {
+	color: rgb(153, 0, 115);
+}
+pre .built_in {
+	color: rgb(0, 134, 179);
+}
+pre .lisp .title {
+	color: rgb(0, 134, 179);
+}
+pre .clojure .built_in {
+	color: rgb(0, 134, 179);
+}
+pre .preprocessor {
+	color: rgb(153, 153, 153); font-weight: bold;
+}
+pre .pi {
+	color: rgb(153, 153, 153); font-weight: bold;
+}
+pre .doctype {
+	color: rgb(153, 153, 153); font-weight: bold;
+}
+pre .shebang {
+	color: rgb(153, 153, 153); font-weight: bold;
+}
+pre .cdata {
+	color: rgb(153, 153, 153); font-weight: bold;
+}
+pre .deletion {
+	background: rgb(255, 221, 221);
+}
+pre .addition {
+	background: rgb(221, 255, 221);
+}
+pre .diff .change {
+	background: rgb(0, 134, 179);
+}
+pre .chunk {
+	color: rgb(170, 170, 170);
+}

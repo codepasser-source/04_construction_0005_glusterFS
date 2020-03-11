@@ -1,0 +1,496 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0038)http://www.tuicool.com/articles/zQVZ7z -->
+<!DOCTYPE html PUBLIC "" ""><!--
+ ______________ 
+< TUICOOL.COM >
+ -------------- 
+        \   ^__^
+         \  (**)\__$__$__
+            (__)\       )\/\
+             U  ||------|
+                ||     ||
+--><HTML><HEAD><META 
+content="IE=10.000" http-equiv="X-UA-Compatible">
+   
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">   
+<META name="viewport" content="width=device-width, initial-scale=1.0">   
+<META name="csrf-param" content="authenticity_token"> 
+<META name="csrf-token" content="ZdV4G0thX6IZKPDMT8nVb9DKTjpjOPicTtQeyar+kt4=">  
+   <TITLE>在CentOS 6.4上安装配置GlusterFS - 推酷</TITLE>     
+<META name="description" content="在CentOS 6.4上安装配置GlusterFS">   <LINK href="/favicon.ico" 
+rel="shortcut icon" type="image/x-icon">     <LINK href="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/application-de0041e76d9213f278352e1cc2d691f8.css" 
+rel="stylesheet" type="text/css" media="all">   <LINK href="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/font-awesome.min.css" 
+rel="stylesheet">   
+<SCRIPT src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/application-74d78fadf45d636e48b88c2bfda697c7.js" type="text/javascript"></SCRIPT>
+   
+<SCRIPT src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/bootstrap-popover-851b0f56937743d00ab0112fdc4047f0.js" type="text/javascript"></SCRIPT>
+   <!--[if IE 7]>
+  <link rel="stylesheet" href="/assets/font-awesome-ie7.min.css">
+  <![endif]--> 
+    
+<SCRIPT src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/tip-405762ee91c557443304e044d7a80e57.js" type="text/javascript"></SCRIPT>
+     	 <LINK href="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/art_zoom-48eda4c0f1a722be6edc5f6d8bc65a9b.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<SCRIPT src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/weibo-7585d869cd63846c6f174a8c58396405.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/m.js" type="text/javascript"></SCRIPT>
+ 
+<META name="GENERATOR" content="MSHTML 10.00.9200.16921"></HEAD> 
+<BODY>
+<DIV class="navbar-fixed-top" id="header">
+<DIV class="container">
+<DIV class="navbar">
+<DIV class="navbar-inner"><A class="btn btn-navbar" data-target=".nav-collapse" 
+data-toggle="collapse"><SPAN class="icon-bar"></SPAN><SPAN 
+class="icon-bar"></SPAN><SPAN class="icon-bar"></SPAN><SPAN 
+class="icon-bar"></SPAN></A><A class="brand" 
+href="http://www.tuicool.com/">推酷</A>        		      <NAV class="nav-collapse collapse">
+<UL class="nav navbar primary-nav">
+  <LI><A href="http://www.tuicool.com/ah">                  文章                 
+  </A></LI>
+  <LI><A href="http://www.tuicool.com/topics">                  主题               
+    </A></LI>
+  <LI><A href="http://www.tuicool.com/sites/hot">                  站点            
+       </A></LI>
+  <LI><A href="http://www.tuicool.com/huodong">                  活动              
+     </A></LI>
+  <LI><A href="http://www.tuicool.com/mobile">                  客户端              
+     </A></LI>
+  <LI class="dropdown  "><A class="dropdown-toggle" href="http://www.tuicool.com/articles/zQVZ7z#" 
+  data-toggle="dropdown">周刊 <B class="caret"></B></A>
+  <UL class="dropdown-menu">
+    <LI><A href="http://www.tuicool.com/mags">编程狂人</A></LI>
+    <LI><A href="http://www.tuicool.com/mags/design">设计匠艺</A></LI></UL></LI>
+  <LI class="dropdown  "><A class="dropdown-toggle" href="http://www.tuicool.com/articles/zQVZ7z#" 
+  data-toggle="dropdown">更多 <B class="caret"></B></A>
+  <UL class="dropdown-menu">
+    <LI><A href="http://www.tuicool.com/t">                        微博推荐          
+               </A></LI>
+    <LI><A href="http://www.tuicool.com/bbs">讨论区</A></LI></UL></LI></UL>
+<FORM class="navbar-search pull-left" action="/topics/search"><INPUT name="kw" 
+class="search-query span2" type="text" placeholder="搜索主题" value=""></FORM>
+<UL class="nav pull-right">
+  <LI><A 
+href="http://www.tuicool.com/login">登录</A></LI></UL></NAV></DIV></DIV></DIV></DIV>
+<DIV class="noPrint" id="flash_container"><!-- <a href='#'' class='close' data-dismiss='alert'>×</a> --> 
+  </DIV>
+<DIV class="container-fluid"><!-- body start-->   
+<SCRIPT src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/spin-4bedcc6bf2df43d294f0e443892d531c.js" type="text/javascript"></SCRIPT>
+ <LINK href="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/github.css" rel="stylesheet"> 
+<DIV class="row-fluid"><!--show start-->     
+<DIV class="span8 contant">
+<H1>在CentOS 6.4上安装配置GlusterFS</H1>
+<DIV class="article_meta"><SPAN class="timestamp">时间2014-04-01 23:37:46          
+   </SPAN>             <SPAN class="from"><I class="icon-globe"></I>             
+        <A class="cut cut28 from" href="http://www.tuicool.com/sites/22uqYj" 
+target="_blank">Hey! Linux.                     </A>             </SPAN>         
+    <SPAN id="dup-cnt"><A href="http://www.tuicool.com/articles/dup?id=zQVZ7z" 
+target="_blank">相似文章</A> (<I id="dup">0</I>)</SPAN>             <SPAN class="pdf"></SPAN> 
+            <SPAN class="source" style="display: block;"><I 
+style="float: left;">原文</I>&nbsp;                 <A class="cut cut70" style="display: inline-block;" 
+href="http://heylinux.com/archives/3034.html">http://heylinux.com/archives/3034.html</A> 
+            </SPAN><A class="btn" id="add-article-to-kan-btn" style="display: none;" 
+href="http://www.tuicool.com/articles/zQVZ7z#add-article-to-kan" data-toggle="modal">添加到推刊</A> 
+            <!-- add_article to kan --> 
+<DIV tabindex="-1" class="modal hide fade" id="add-article-to-kan" role="dialog" 
+aria-hidden="true" aria-labelledby="myModalLabel">
+<DIV class="modal-header"><SPAN class="add-title">收藏到推刊</SPAN>     <A class="btn pull-right" 
+href="http://www.tuicool.com/articles/zQVZ7z#new-kan" 
+data-toggle="modal">创建推刊</A>     <I class="clearfix"></I></DIV>
+<DIV class="modal-body">
+<UL id="add-kan-list"></UL></DIV>
+<DIV class="modal-footer"><INPUT class="article-id" type="hidden" 
+value="zQVZ7z">     <BUTTON class="btn btn-primary pull-left add-to-btn">收 藏  
+</BUTTON>     <BUTTON class="btn" aria-hidden="true" 
+data-dismiss="modal">取消</BUTTON>   </DIV></DIV>
+<DIV class="add-article-to-kan-alert">已收藏到推刊！ </DIV>
+<DIV tabindex="-1" class="modal hide fade" id="new-kan" role="dialog" 
+aria-hidden="true" aria-labelledby="myModalLabel"><!--
+    <a href="new-kan" class="btn" data-toggle="modal">创建推刊</a>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+--> 
+  
+<DIV class="modal-body"><INPUT name="name" id="new-kan-name" required="" type="text" 
+placeholder="推刊名(必填)" value="" data-validation-required-message="请填写推刊名">     
+<SPAN class="new-ness-name">请填写推刊名</SPAN>     <BR><TEXTAREA name="desc" id="desc" placeholder="推刊描述" rows="6">推刊描述</TEXTAREA> 
+    <SPAN class="new-ness-desc">描述不能大于100个字符!</SPAN>     <BR>权限设置：<INPUT name="type" 
+type="radio" value="1"> 公开     <INPUT name="type" type="radio" value="0"> 仅自己可见  
+ </DIV>
+<DIV class="modal-footer"><BUTTON disabled="" class="btn btn-primary pull-left create-kan-btn">创建</BUTTON> 
+    <BUTTON class="btn dismiss-new-kan" aria-hidden="true" 
+data-dismiss="modal">取消</BUTTON>   </DIV></DIV></DIV>
+<DIV class="article_body" id="nei">
+<DIV>
+<P><STRONG>背景介绍：</STRONG>     <BR>    
+项目目前在文件同步方面采用的是rsync，在尝试用分布式文件系统替换的时候，使用过MooseFS，效果差强人意，在了解到了GlusterFS之后，决定尝试一下，因为它跟MooseFS相比，感觉部署上更加简单一些，同时没有元数据服务器的特点使其没有单点故障的存在，感觉非常不错。 
+ </P>
+<P><STRONG>环境介绍：</STRONG>     <BR>OS: CentOS 6.4 x86_64 Minimal    <BR>    
+Servers: sc2-log1,sc2-log2,sc2-log3,sc2-log4    <BR>    Client: sc2-ads15  </P>
+<P><STRONG>具体步骤：</STRONG>     <BR>1. 在sc2-log{1-4}上安装GlusterFS软件包：    <BR># wget 
+-P /etc/yum.repos.d 
+http://download.gluster.org/pub/gluster/glusterfs/LATEST/CentOS/glusterfs-epel.repo 
+   <BR>    # yum install -y glusterfs-3.4.2-1.el6 glusterfs-server-3.4.2-1.el6 
+glusterfs-fuse-3.4.2-1.el6  </P>
+<P>    # /etc/init.d/glusterd start    <BR>    # chkconfig glusterfsd on  </P>
+<P>    2. 在sc2-log1上配置整个GlusterFS集群：    <BR>[root@sc2-log1 ~]# gluster peer 
+probe sc2-log1  </P>
+<PRE class="prettyprint">peer probe: success: on localhost not needed</PRE>
+<P>[root@sc2-log1 ~]# gluster peer probe sc2-log2</P>
+<PRE class="prettyprint">peer probe: success</PRE>
+<P>[root@sc2-log1 ~]# gluster peer probe sc2-log3</P>
+<PRE class="prettyprint">peer probe: success</PRE>
+<P>[root@sc2-log1 ~]# gluster peer probe sc2-log4</P>
+<PRE class="prettyprint">peer probe: success</PRE>
+<P>[root@sc2-log1 ~]# gluster peer status</P>
+<PRE class="prettyprint">Number of Peers: 3
+
+Hostname: sc2-log2
+Port: 24007
+Uuid: 399973af-bae9-4326-9cbd-b5b05e5d2927
+State: Peer in Cluster (Connected)
+
+Hostname: sc2-log3
+Port: 24007
+Uuid: 833a7b8d-e3b3-4099-baf9-416ee7213337
+State: Peer in Cluster (Connected)
+
+Hostname: sc2-log4
+Port: 24007
+Uuid: 54bf115a-0119-4021-af80-7a6bca137fd9
+State: Peer in Cluster (Connected)</PRE>
+<P>    3. 在sc2-log{1-4}上创建数据存放目录：    <BR># mkdir -p 
+/usr/local/share/{models,geoip,wurfl}    <BR>    # ls -l /usr/local/share/  </P>
+<PRE class="prettyprint">total 24
+drwxr-xr-x   2 root root 4096 Apr  1 12:19 geoip
+drwxr-xr-x   2 root root 4096 Apr  1 12:19 models
+drwxr-xr-x   2 root root 4096 Apr  1 12:19 wurfl</PRE>
+<P>    4. 在sc2-log1上创建GlusterFS磁盘：    <BR>[root@sc2-log1 ~]# gluster volume 
+create models replica 4 sc2-log1:/usr/local/share/models 
+sc2-log2:/usr/local/share/models sc2-log3:/usr/local/share/models 
+sc2-log4:/usr/local/share/models force  </P>
+<PRE class="prettyprint">volume create: models: success: please start the volume to access data</PRE>
+<P>[root@sc2-log1 ~]# gluster volume create geoip replica 4 
+sc2-log1:/usr/local/share/geoip sc2-log2:/usr/local/share/geoip 
+sc2-log3:/usr/local/share/geoip sc2-log4:/usr/local/share/geoip force</P>
+<PRE class="prettyprint">volume create: geoip: success: please start the volume to access data</PRE>
+<P>[root@sc2-log1 ~]# gluster volume create wurfl replica 4 
+sc2-log1:/usr/local/share/wurfl sc2-log2:/usr/local/share/wurfl 
+sc2-log3:/usr/local/share/wurfl sc2-log4:/usr/local/share/wurfl force</P>
+<PRE class="prettyprint">volume create: wurfl: success: please start the volume to access data</PRE>
+<P>[root@sc2-log1 ~]# gluster volume start models</P>
+<PRE class="prettyprint">volume start: models: success</PRE>
+<P>[root@sc2-log1 ~]# gluster volume start geoip</P>
+<PRE class="prettyprint">volume start: geoip: success</PRE>
+<P>[root@sc2-log1 ~]# gluster volume start wurfl</P>
+<PRE class="prettyprint">volume start: wurfl: success</PRE>
+<P>[root@sc2-log1 ~]# gluster volume info</P>
+<PRE class="prettyprint">Volume Name: models
+Type: Replicate
+Volume ID: b29b22bd-6d8c-45c0-b199-91fa5a76801f
+Status: Started
+Number of Bricks: 1 x 4 = 4
+Transport-type: tcp
+Bricks:
+Brick1: sc2-log1:/usr/local/share/models
+Brick2: sc2-log2:/usr/local/share/models
+Brick3: sc2-log3:/usr/local/share/models
+Brick4: sc2-log4:/usr/local/share/models
+ 
+Volume Name: geoip
+Type: Replicate
+Volume ID: 69b0caa8-7c23-4712-beae-6f536b1cffa3
+Status: Started
+Number of Bricks: 1 x 4 = 4
+Transport-type: tcp
+Bricks:
+Brick1: sc2-log1:/usr/local/share/geoip
+Brick2: sc2-log2:/usr/local/share/geoip
+Brick3: sc2-log3:/usr/local/share/geoip
+Brick4: sc2-log4:/usr/local/share/geoip
+ 
+Volume Name: wurfl
+Type: Replicate
+Volume ID: c723a99d-eeab-4865-819a-c0926cf7b88a
+Status: Started
+Number of Bricks: 1 x 4 = 4
+Transport-type: tcp
+Bricks:
+Brick1: sc2-log1:/usr/local/share/wurfl
+Brick2: sc2-log2:/usr/local/share/wurfl
+Brick3: sc2-log3:/usr/local/share/wurfl
+Brick4: sc2-log4:/usr/local/share/wurfl</PRE>
+<P>    5. 在sc2-ads15上部署客户端并mount GlusterFS文件系统：    
+<BR>[sc2-ads15][root@sc2-ads15 ~]# wget -P /etc/yum.repos.d 
+http://download.gluster.org/pub/gluster/glusterfs/LATEST/CentOS/glusterfs-epel.repo 
+   <BR>    [sc2-ads15][root@sc2-ads15 ~]# yum install -y glusterfs-3.4.2-1.el6 
+glusterfs-fuse-3.4.2-1.el6    <BR>    [sc2-ads15][root@sc2-ads15 ~]# mkdir -p 
+/mnt/{models,geoip,wurfl}    <BR>    [sc2-ads15][root@sc2-ads15 ~]# mount -t 
+glusterfs -o ro sc2-log3:models /mnt/models/    <BR>    
+[sc2-ads15][root@sc2-ads15 ~]# mount -t glusterfs -o ro sc2-log3:geoip 
+/mnt/geoip/    <BR>    [sc2-ads15][root@sc2-ads15 ~]# mount -t glusterfs -o ro 
+sc2-log3:wurfl /mnt/wurfl/    <BR>    [sc2-ads15][root@sc2-ads15 ~]# df -h  </P>
+<PRE class="prettyprint">Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_t-lv_root
+	59G  7.7G   48G  14% /
+tmpfs                 3.9G     0  3.9G   0% /dev/shm
+/dev/xvda1            485M   33M  428M   8% /boot
+sc2-log3:models        98G  8.6G   85G  10% /mnt/models
+sc2-log3:geoip         98G  8.6G   85G  10% /mnt/geoip
+sc2-log3:wurfl         98G  8.6G   85G  10% /mnt/wurfl</PRE>
+<P>    6. 相关数据读写可用性测试：    <BR>    在sc2-ads15挂载点上写入数据：    
+<BR>[sc2-ads15][root@sc2-ads15 ~]# umount /mnt/models    <BR>    
+[sc2-ads15][root@sc2-ads15 ~]# mount -t glusterfs sc2-log3:models /mnt/models/   
+ <BR>    [sc2-ads15][root@sc2-ads15 ~]# echo "This is sc2-ads15" &gt; 
+/mnt/models/hello.txt    <BR>    [sc2-ads15][root@sc2-ads15 ~]# mkdir 
+/mnt/testdir    <BR>在sc2-log1数据目录中进行查看：    <BR>[root@sc2-log1 ~]# ls 
+/usr/local/share/models/  </P>
+<PRE class="prettyprint">hello.txt testdir</PRE>
+<P>结果： 数据写入成功</P>
+<P>    在sc2-log1数据目录中直接写入数据：    <BR>[root@sc2-log1 ~]# echo "This is sc2-log1" 
+&gt; /usr/local/share/models/hello.2.txt    <BR>    [root@sc2-log1 ~]# mkdir 
+/usr/local/share/models/test2    <BR>在sc2-ads15挂载点上进行查看：    
+<BR>[sc2-ads15][root@sc2-ads15 ~]# ls /mnt/models    <BR>    
+[sc2-ads15][root@sc2-ads15 ~]# ls -l /mnt/models  </P>
+<PRE class="prettyprint">hello.txt testdir</PRE>
+<P>结果： 数据写入失败</P>
+<P>    在sc2-log1挂载点上写入数据：    <BR>[root@sc2-log1 ~]# mount -t glusterfs 
+sc2-log1:models /mnt/models/    <BR>    [root@sc2-log1 ~]# echo "This is 
+sc2-log1" &gt; /mnt/models/hello.3.txt    <BR>    [root@sc2-log1 ~]# mkdir 
+/mnt/models/test3    <BR>在sc2-ads15挂载点上进行查看：    <BR>[sc2-ads15][root@sc2-ads15 
+models]# ls /mnt/models  </P>
+<PRE class="prettyprint">hello.2.txt  hello.3.txt hello.txt  test2  test3  testdir</PRE>
+<P>结果： 数据写入成功，同时之前写入失败的数据也成功加载了。</P>
+<P>    最终结论：    <BR>    在数据目录中直接写入数据，会导致其它节点因为得不到通知而使数据同步失败。    <BR>    
+正确的做法是所有的读写操作都通过挂载点来进行。  </P>
+<P>7. 其它操作笔记：    <BR>    删除GlusterFS磁盘：    <BR># gluster volume stop models    
+<BR>    # gluster volume delete models  </P>
+<P>卸载GlusterFS磁盘：    <BR># gluster peer detach sc2-log4  </P>
+<P>    ACL访问控制：    <BR># gluster volume set models auth.allow 10.60.1.*  </P>
+<P>添加GlusterFS节点：    <BR># gluster peer probe sc2-log5    <BR>    # gluster peer 
+probe sc2-log6    <BR>    # gluster volume add-brick models 
+sc2-log5:/data/gluster sc2-log6:/data/gluster  </P>
+<P>迁移GlusterFS磁盘数据：    <BR># gluster volume remove-brick models 
+sc2-log1:/usr/local/share/models sc2-log5:/usr/local/share/models start    <BR>  
+  # gluster volume remove-brick models sc2-log1:/usr/local/share/models 
+sc2-log5:/usr/local/share/models status    <BR>    # gluster volume remove-brick 
+models sc2-log1:/usr/local/share/models sc2-log5:/usr/local/share/models commit  
+</P>
+<P>修复GlusterFS磁盘数据（例如在sc2-log1宕机的情况下）：    <BR># gluster volume replace-brick 
+models sc2-log1:/usr/local/share/models sc2-log5:/usr/local/share/models commit 
+-force    <BR>    # gluster volume heal models full  </P></DIV></DIV></DIV>
+<DIV class="span4">
+<DIV class="related_topics" id="related_topics">
+<H4 class="side_article_list_title">相关主题</H4>
+<UL class="side_topic_list">
+  <LI class="side_topic_list_item"><A style="text-decoration: none;" href="http://www.tuicool.com/topics/11030061" 
+  target="_blank"><IMG alt="GlusterFS" src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/11030061.png"></A><SPAN><A 
+  href="http://www.tuicool.com/topics/11030061" 
+  target="_blank">GlusterFS</A></SPAN>                     <SPAN><A class="btn fo-btn fo-ok" 
+  style="display: none;" data-id="11030061"><IMG class="fo-img" src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/add.png"></A></SPAN> 
+                  </LI>
+  <LI class="side_topic_list_item"><A style="text-decoration: none;" href="http://www.tuicool.com/topics/11200003" 
+  target="_blank"><IMG alt="Centos" src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/11200003.png"></A><SPAN><A 
+  href="http://www.tuicool.com/topics/11200003" 
+  target="_blank">Centos</A></SPAN>                     <SPAN><A class="btn fo-btn fo-ok" 
+  style="display: none;" data-id="11200003"><IMG class="fo-img" src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/add.png"></A></SPAN> 
+                  </LI></UL></DIV>
+<DIV class="operate_zone">
+<H4 class="side_article_list_title">如果你感兴趣</H4>
+<DIV class="article_like"><BUTTON class="btn btn-large liked" id="my_like2" 
+data_id="zQVZ7z"><!-- <i class="icon-thumbs-up"></i>--><I class="icon-heart-empty"></I> 
+                   喜 欢                 </BUTTON>                 <BUTTON class="btn btn-large liked" 
+id="my_like" data_id="zQVZ7z"><I class="icon-star-empty"></I>                    
+ 收 藏                 </BUTTON>             </DIV>
+<H4 class="side_article_list_title">分享该文章</H4>
+<DIV class="share_zone">
+<SCRIPT type="text/javascript" charset="utf-8">
+                    (function(){
+                        var _w = 32, _h = 32;
+                        var param = {
+                            url: location.href,
+                            type: '1',
+                            count: '', /**是否显示分享数，1显示(可选)*/
+                            appkey: '', /**您申请的应用appkey,显示分享来源(可选)*/
+                            title: '在CentOS 6.4上安装配置GlusterFS', /**分享的文字内容(可选，默认为所在页面的title)*/
+                            pic: '', /**分享图片的路径(可选)*/
+                            ralateUid: '2609648351', /**关联用户的UID，分享微博会@该用户(可选)*/
+                            language: 'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+                            rnd: new Date().valueOf()
+                        }
+                        var temp = [];
+                        for (var p in param) {
+                            temp.push(p + '=' + encodeURIComponent(param[p] || ''))
+                        }
+                        document.write('<iframe id="sina_share" allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="' + _w + '" height="' + _h + '"></iframe>')
+                    })()
+                </SCRIPT>
+                 
+<DIV id="qqwb_share__" data-pic="http://img0.tuicool.com/" data-content="在CentOS 6.4上安装配置GlusterFS （分享自 @tuicool）" 
+data-counter="0" data-icon="0" data-appkey="801319615"></DIV>
+<SCRIPT src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/openjs.js"></SCRIPT>
+                 <A title="分享到豆瓣" id="douban_share" href="http://share.baidu.com/s?type=text&amp;searchPic=0&amp;sign=on&amp;to=douban&amp;url=http://www.tuicool.com/articles/zQVZ7z&amp;title=在CentOS 6.4上安装配置GlusterFS" 
+target="_blank"></A><A title="分享到QQ空间" id="qqzone_share" href="http://share.baidu.com/s?type=text&amp;searchPic=0&amp;sign=on&amp;to=qzone&amp;url=http://www.tuicool.com/articles/zQVZ7z&amp;title=在CentOS 6.4上安装配置GlusterFS （分享自 @tuicool）" 
+target="_blank"></A>
+<DIV class="pull-left btn-group"><BUTTON class="btn btn-primary dropdown-toggle pull-right tohide" 
+style="height: 32px; font-size: 14px;" data-toggle="dropdown"><I class="icon icon-share-alt icon-white"></I> 
+                        分享到 <SPAN class="caret"></SPAN>                     
+</BUTTON>                     
+<UL class="dropdown-menu">
+  <LI><A href="http://s.evernote.com/grclip?url=http://www.tuicool.com/articles/zQVZ7z&amp;title=在CentOS 6.4上安装配置GlusterFS" 
+  target="_blank">印象笔记</A></LI>
+  <LI><A title="分享到人人网" href="http://share.baidu.com/s?type=text&amp;searchPic=0&amp;sign=on&amp;to=renren&amp;url=http://www.tuicool.com/articles/zQVZ7z&amp;title=在CentOS 6.4上安装配置GlusterFS" 
+  target="_blank">人人网</A></LI>
+  <LI><A title="分享到Facebook" href="http://share.baidu.com/s?type=text&amp;searchPic=0&amp;sign=on&amp;to=fbook&amp;url=http://www.tuicool.com/articles/zQVZ7z&amp;title=在CentOS 6.4上安装配置GlusterFS" 
+  target="_blank">Facebook</A></LI>
+  <LI><A title="分享到Twitter" href="http://share.baidu.com/s?type=text&amp;searchPic=0&amp;sign=on&amp;to=twi&amp;url=http://www.tuicool.com/articles/zQVZ7z&amp;title=在CentOS 6.4上安装配置GlusterFS" 
+  target="_blank">Twitter</A></LI>
+  <LI><A title="分享到Linkedin" href="http://share.baidu.com/s?type=text&amp;searchPic=0&amp;sign=on&amp;to=linkedin&amp;url=http://www.tuicool.com/articles/zQVZ7z&amp;title=在CentOS 6.4上安装配置GlusterFS" 
+  target="_blank">Linkedin</A></LI>
+  <LI><A title="分享到G+" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" 
+  href="https://plus.google.com/share?url={http://www.tuicool.com/articles/zQVZ7z}">Google 
+  +</A></LI>
+  <LI class="divider"></LI>
+  <LI><A href="mailto:?subject=好文分享：在CentOS 6.4上安装配置GlusterFS&amp;body=/articles/zQVZ7z">E-Mail</A></LI></UL></DIV></DIV><A 
+href="http://www.tuicool.com/mobile?s=a" target="_blank"><IMG width="250" style="margin-left: 20px;" 
+src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/mobile_rec.jpg"></A>             <!-- <a class="sept-bar" href="http://app.xiaomi.com/detail/16936" target="_blank">
+            <img src="/images/logo.jpg" />
+            推酷壹时代首发小米商店 >
+            </a> --> 
+        </DIV></DIV></DIV>
+<DIV class="row-fluid" style="margin-top: 0px;">
+<DIV class="span8">
+<DIV id="site_articles"></DIV>
+<DIV id="kan_articles"></DIV>
+<DIV id="article_weibo">
+<DIV class="header-title"><SPAN>相关微博</SPAN>                 <SUB><A href="http://www.tuicool.com/articles/weibo_list/zQVZ7z" 
+target="_blank">共有(<I></I>)条</A>                 </SUB>             </DIV>
+<DIV class="related-weibo-list"></DIV></DIV>
+<DIV class="comments">
+<DIV class="cover">
+<DIV class="comment-notlogin">                请登录后评论                 <BR><SMALL 
+style="margin-top: 5px;">                    已发表评论数(<SPAN 
+class="comment_cnt"></SPAN>)                 </SMALL>             </DIV>
+<DIV class="comment-loading">
+<DIV id="spinner2"></DIV>评论加载中             </DIV></DIV>
+<DIV class="comments-area" style="display: none;">
+<DIV class="comments-list">
+<DIV class="empty-cmts alert alert-success" style="display: none;">              
+      没有更多评论了^^                 </DIV></DIV>
+<DIV class="more-comments" style="display: none;"><!--
+                <a href="/articles/zQVZ7z/comments" target="_blank">所有评论</a>--><A 
+href="http://www.tuicool.com/articles/">更多评论</A></DIV>
+<DIV class="load-fail" style="display: none;">                评论加载失败，<A href="javascript:reload_comments('zQVZ7z',1,0,-1);">重新加载</A> 
+            </DIV></DIV></DIV></DIV>
+<DIV class="span4"></DIV></DIV>
+<DIV tabindex="-1" class="modal hide fade in" id="article-correct-modal" role="dialog" 
+aria-hidden="false" aria-labelledby="myModalLabel">
+<DIV class="modal-header"><BUTTON class="close" aria-hidden="true" type="button" 
+data-dismiss="modal">×         </BUTTON>         
+<H3>文章纠错</H3></DIV>
+<DIV class="modal-body"><INPUT id="article-correct-source" type="hidden" value="zQVZ7z"> 
+        
+<DIV><LABEL for="article-correct-email">邮箱             </LABEL>             
+<INPUT class="input-large" id="article-correct-email" type="email">         
+</DIV>
+<DIV><LABEL for="article-correct-select">错误类型             </LABEL>             
+<SELECT id="article-correct-select"><OPTION value="正文不准确">正文不准确</OPTION>       
+            <OPTION value="排版有问题">排版有问题</OPTION>                 <OPTION value="没有分页内容">没有分页内容</OPTION> 
+                  <OPTION value="视频无法显示">视频无法显示</OPTION>                 <OPTION 
+  value="图片无法显示">图片无法显示</OPTION>             </SELECT>         </DIV>
+<DIV><LABEL for="article-correct-other">补充信息             </LABEL>             
+<TEXTAREA class="span6" id="article-correct-other">            </TEXTAREA></DIV></DIV>
+<DIV class="modal-footer"><BUTTON class="btn btn-primary pull-right huodong_correct_submit" 
+id="article-correct-submit">提交         </BUTTON>     </DIV></DIV>
+<DIV class="modal hide fade" id="myLoginModal">
+<DIV class="modal-header"><A class="close" data-dismiss="modal">×</A>		 
+<H3>用户登陆</H3></DIV>
+<DIV class="modal-body">
+<FORM class="form-horizontal" id="login-form" action="/login" method="post">
+<DIV class="control-group"><SPAN class="control-label" for="xlEmail">邮箱</SPAN>
+				 
+<DIV class="login-controls"><INPUT name="email" class="input-medium" id="xlEmail" 
+type="text">				 </DIV></DIV>
+<DIV class="control-group"><SPAN class="control-label">密码</SPAN>				 
+<DIV class="login-controls"><INPUT name="password" class="input-medium" id="xlPassword" 
+type="password">				 </DIV></DIV>
+<DIV class="form-actions"><BUTTON class="btn btn-primary" type="submit">
+					&nbsp;&nbsp;登&nbsp;&nbsp;&nbsp;陆&nbsp;&nbsp;				</BUTTON>
+			 </DIV></FORM></DIV></DIV>
+<DIV class="read-later-alert"></DIV>
+<STYLE type="text/css">
+    #dup-cnt {
+        display: none;
+    }
+    
+    .btn-large {
+        padding: 0;
+    }
+    
+    .load-fail {
+        display: none;
+    }
+    
+    .header-title {
+        margin-bottom: 10px;
+        line-height: 25px;
+    }
+    
+    .header-title span {
+        font-size: 16px;
+        height: 25px;
+    }
+</STYLE>
+ 
+<SCRIPT src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/highlight.pack.js"></SCRIPT>
+ 
+<SCRIPT type="text/javascript">
+    		$(document).ready( function() {
+    	  	$.get("/articles/last_article_by_site_async?sid=22uqYj&aid=zQVZ7z",function(data){$('#site_articles').append(data)});
+    		});	
+    		$.get('/articles/dup_count?id=zQVZ7z',function(data){
+    			if(data.success){
+    				if(data.data > 0){
+    					$('#dup-cnt').show();
+    				}
+    				$('#dup').text(data.data);
+    			}
+    		})	
+    $(document).ready( function() {
+    	$('pre').each(function(i, e) {
+    		hljs.highlightBlock(e, "<span class='indent'>  </span>", false)
+    	});
+      // 加载相关微
+      get_weibo("zQVZ7z");
+    	//async_do_like_article();
+        // 加载相关的推刊
+      related_kan("zQVZ7z");
+      open_add_article_to_kan("false");
+    	async_do_like2_article(); 
+    	window.page = 0;
+    	window.last = 0;	
+    	window.first = true;	
+    	resize_article_image('#nei', 550);	
+    			$('.btn-submit').hide();
+    			load_comments("zQVZ7z",1,0,-1);
+    			window.uid = -1;				
+    	
+    });
+    	  
+    
+</SCRIPT>
+   <!-- body end --> </DIV><!--tc_footer start --> 
+<DIV class="footer" style="margin-top: 50px;">
+<P><A href="http://www.tuicool.com/about" target="_blank">关于</A>       <A href="http://www.tuicool.com/mobile" 
+target="_blank">应用</A>       <A href="http://www.tuicool.com/bbs/go/issues" 
+target="_blank">反馈</A>       <A href="http://www.tuicool.com/bbs" target="_blank">讨论</A> 
+    </P></DIV><!--   <div class="sept-notify">
+    <a href="javascript:close_sept();" class="close pull-right">&times;</a>
+    <a class="sept-notify-body" href="/septs" target="_blank">有一些书要送给你[第一季]</a>
+  </div> --> 
+      <!--tc_footer end --> 
+<DIV style="display: none;">
+<SCRIPT language="JavaScript" src="在CentOS%206_4上安装配置GlusterFS%20-%20推酷_files/stat.js"></SCRIPT>
+ </DIV></BODY></HTML>
